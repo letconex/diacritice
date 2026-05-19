@@ -66,7 +66,7 @@ def main():
                 force_inline_comparison=True,
             )
             replaced = count_replacements(input_text, st.session_state["res"])
-            st.markdown(f"Caractere: :gray-badge[{len(input_text)}] Modificări: :blue-badge[{'Da' if {replaced} else 'Nu'}]. Înlocuiri: :green-badge[{replaced}].")
+            st.markdown(f"Caractere: :gray-badge[{len(input_text)}] Modificări: :blue-badge[{'Da' if replaced > 0 else 'Nu'}]. Înlocuiri: :green-badge[{replaced}]")
             # st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
             # st.write(f"Modificări: {"Da" if result['isChanged'] else "Nu"} Adăugări: {result['addNum']} Ștergeri: {result['delNum']}")
