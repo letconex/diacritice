@@ -53,6 +53,8 @@ def main():
                 st.session_state["res"] = generate_text(input_text)
         else:
             st.warning("Câmpul este gol!")
+            st.session_state["input"] = None
+            st.session_state["res"] = None
     
     # --- RENDER: always outside the button ---
     if "res" in st.session_state:
@@ -65,11 +67,10 @@ def main():
                 output_format="line-by-line", # "line-by-line" "side-by-side"
                 force_inline_comparison=True,
             )
-            replaced = count_replacements(input_text, st.session_state["res"])
-            st.markdown(f"Caractere: :gray-badge[{len(input_text)}] Modificări: :blue-badge[{'Da' if replaced > 0 else 'Nu'}]. Înlocuiri: :green-badge[{replaced}]")
+            replacements = count_replacements(input_text, st.session_state["res"])
+            st.markdown(f"Caractere: :gray-badge[{len(input_text)}] Modificări: :blue-badge[{'Da' if replacements > 0 else 'Nu'}] Înlocuiri: :green-badge[{replacements}]")
             # st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
-            # st.write(f"Modificări: {"Da" if result['isChanged'] else "Nu"} Adăugări: {result['addNum']} Ștergeri: {result['delNum']}")
             # st.markdown(st.session_state["res"])
 if __name__ == "__main__":
     main()
