@@ -1,5 +1,6 @@
 import streamlit as st
 from st_diff_viewer import diff_viewer
+from streamlit_code_diff import st_code_diff
 from transformers import MT5ForConditionalGeneration, T5Tokenizer
 import time
 
