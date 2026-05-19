@@ -56,10 +56,7 @@ def main():
                 output_format="line-by-line",
             )
             # st.write(f"Modificări: {result['isChanged']} {result['addNum'] {result['delNum']")
-            st.markdown(st.session_state["res"])
-            st.code(st.session_state["res"], language="plaintext")
-            st.button("Copiază textul", on_click=lambda: st.session_state.update({"copy": st.session_state["res"]}))
-            st.write("Textul a fost copiat în clipboard!")
-
+            st.code(st.session_state["res"], language=None, wrap_lines=True)
+            # st.markdown(`st.session_state["res"]`)
 if __name__ == "__main__":
     main()
