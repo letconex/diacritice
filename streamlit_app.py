@@ -18,10 +18,10 @@ def initialize_app():
         page_title="Diacritice",
         page_icon="public/favicon.ico",
         menu_items={
-            "About": "### Diacritice",
+            "About": "### Adaugă diacritice",
         },
     )
-    st.title("🖋️Dia-critic")
+    st.title("🖋️Diacritice")
 
 def generate_text(text):
     model = load_model()
@@ -33,10 +33,10 @@ def generate_text(text):
 
 def main():
     initialize_app()
-    input_text = st.text_area("Introduceți textul fără diacritice mai jos")
+    input_text = st.text_area("Introduceți textul fără diacritice!")
     st.write(f'{len(input_text)} caractere.')
 
-# --- BUTTON: only sets state ---
+    # --- BUTTON: only sets state ---
     if st.button("Corectează diacritice"):
         if input_text:
             with st.spinner("Sarcină în desfășurare..."):
@@ -57,6 +57,6 @@ def main():
             )
             # st.write(f"Modificări: {result['isChanged']} {result['addNum'] {result['delNum']")
             st.code(st.session_state["res"], language=None, wrap_lines=True)
-            st.markdown(```st.session_state["res"]```)
+            # st.markdown(st.session_state["res"])
 if __name__ == "__main__":
     main()
