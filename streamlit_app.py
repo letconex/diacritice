@@ -1,5 +1,4 @@
 import streamlit as st
-from st_diff_viewer import diff_viewer
 from streamlit_code_diff import st_code_diff
 from transformers import MT5ForConditionalGeneration, T5Tokenizer
 import time
@@ -43,10 +42,9 @@ def main():
                 # start task
                 res = generate_text(input_text)
                 with st.container(border=True):
-                    st.markdown(res)
-                    # diff_viewer(input_text, res, split_view=False)
                     result = st_code_diff(old_string=input_text, new_string=res, language="plaintext")
                     st.write(f"Changes detected: {result['isChanged']}")
+                    st.markdown(res)
         else:
             st.warning("Câmpul este gol!")
 
