@@ -18,7 +18,7 @@ def initialize_app():
         page_title="Diacritice",
         page_icon="public/favicon.ico",
         menu_items={
-            "About": "### Original author\n ✉️florinbobis@gmail.com",
+            "About": "### Diacritice",
         },
     )
     st.title("🖋️Dia-critic")
