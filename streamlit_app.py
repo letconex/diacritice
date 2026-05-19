@@ -43,7 +43,9 @@ def main():
                 res = generate_text(input_text)
                 with st.container(border=True):
                     st.markdown(res)
-                    diff_viewer(input_text, res, split_view=False)
+                    # diff_viewer(input_text, res, split_view=False)
+                    result = st_code_diff(old_string=input_text, new_string=res, language="plaintext")
+                    st.write(f"Changes detected: {result['isChanged']}")
         else:
             st.warning("Câmpul este gol!")
 
