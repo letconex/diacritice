@@ -53,7 +53,8 @@ def main():
                 st.session_state["res"] = generate_text(input_text)
         else:
             st.warning("Câmpul este gol!")
-            st.session_state["input"] = None
+            st.session_state.pop("input", None)
+            st.session_state.pop("res", None)
     
     # --- RENDER: always outside the button ---
     if "res" in st.session_state:
