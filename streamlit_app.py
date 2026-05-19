@@ -52,7 +52,7 @@ def main():
                 st.session_state["input"] = input_text
                 st.session_state["res"] = generate_text(input_text)
         else:
-            st.warning("Câmpul este gol!")
+            st.warning("Nu a fost introdus niciun text! Vă rugăm să introduceți textul fără diacritice!")
             st.session_state.pop("input", None)
             st.session_state.pop("res", None)
     
@@ -67,7 +67,7 @@ def main():
                 output_format="line-by-line", # "line-by-line" "side-by-side"
                 force_inline_comparison=True,
             )
-            replacements = count_replacements(input_text, st.session_state["res"])
+            replacements = count_replacements(st.session_state["input"], st.session_state["res"])
             st.markdown(f"Caractere: :gray-badge[{len(input_text)}] Modificări: :blue-badge[{'Da' if replacements > 0 else 'Nu'}] Înlocuiri: :green-badge[{replacements}]")
             # st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
