@@ -57,7 +57,7 @@ def main():
                 force_inline_comparison=True,
             )
             st.write(f"Modificări: {"Da" if result['isChanged'] else "Nu"} Adăugări: {result['addNum']} Ștergeri: {result['delNum']}")
-            st.markdown(f""":violet-badge[f"Modificări: {'Da' if result['isChanged'] else 'Nu'}"] :green-badge[f"Adăugări: {result['addNum']}"] :red-badge[f"Ștergeri: {result['delNum']}"]""")
+            st.markdown(f""":violet-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
             # st.markdown(st.session_state["res"])
 if __name__ == "__main__":
