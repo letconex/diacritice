@@ -54,7 +54,6 @@ def main():
         else:
             st.warning("Câmpul este gol!")
             st.session_state["input"] = None
-            st.session_state["res"] = None
     
     # --- RENDER: always outside the button ---
     if "res" in st.session_state:
