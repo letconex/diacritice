@@ -12,3 +12,6 @@ gatherUsageStats = false
 #
 # Default: "info"
 level = "warning"
+
+[server]
+baseUrlPath = ""
