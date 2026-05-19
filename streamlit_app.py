@@ -33,8 +33,8 @@ def generate_text(text):
 
 def main():
     initialize_app()
-input_text = st.text_area("Introduceți textul fără diacritice mai jos")
-st.write(f'{len(input_text)} caractere.')
+    input_text = st.text_area("Introduceți textul fără diacritice mai jos")
+    st.write(f'{len(input_text)} caractere.')
 
 # --- BUTTON: only sets state ---
     if st.button("Corectează diacritice"):
