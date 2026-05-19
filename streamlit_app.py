@@ -53,7 +53,7 @@ def main():
                 new_string=st.session_state["res"],
                 language="plaintext",
                 diff_style="char",
-                output_format="line-by-line".
+                output_format="line-by-line",
             )
             # st.write(f"Modificări: {result['isChanged']} {result['addNum'] {result['delNum']")
             st.markdown(st.session_state["res"])
