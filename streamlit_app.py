@@ -53,7 +53,7 @@ def main():
                 new_string=st.session_state["res"],
                 language="plaintext",
                 diff_style="char",
-                output_format="side-by-side", # "line-by-line" "side-by-side"
+                output_format="line-by-line", # "line-by-line" "side-by-side"
                 force_inline_comparison=True,
             )
             st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
