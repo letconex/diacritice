@@ -57,6 +57,6 @@ def main():
             )
             # st.write(f"Modificări: {result['isChanged']} {result['addNum'] {result['delNum']")
             st.code(st.session_state["res"], language=None, wrap_lines=True)
-            st.markdown("```st.session_state["res"]```")
+            st.markdown(```st.session_state["res"]```)
 if __name__ == "__main__":
     main()
