@@ -51,10 +51,15 @@ def main():
             result = st_code_diff(
                 old_string=st.session_state["input"],
                 new_string=st.session_state["res"],
-                language="plaintext"
+                language="plaintext",
+                diff_style="char",
+                output_format="line-by-line".
             )
-            st.write(f"Changes detected: {result['isChanged']}")
+            # st.write(f"Modificări: {result['isChanged']} {result['addNum'] {result['delNum']")
             st.markdown(st.session_state["res"])
+            st.code(st.session_state["res"], language="plaintext")
+            st.button("Copiază textul", on_click=lambda: st.session_state.update({"copy": st.session_state["res"]}))
+            st.write("Textul a fost copiat în clipboard!")
 
 if __name__ == "__main__":
     main()
