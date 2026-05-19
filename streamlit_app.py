@@ -66,7 +66,7 @@ def main():
                 output_format="line-by-line", # "line-by-line" "side-by-side"
                 force_inline_comparison=True,
             )
-            replaced = count_replacements(input_text, res)
+            replaced = count_replacements(input_text, st.session_state["res"])
             # st.markdown(f":blue-badge[Modificări: {'Da' if replaced else 'Nu'}] :green-badge[Înlocuiri: replaced]")
             st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
