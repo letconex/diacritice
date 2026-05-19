@@ -31,6 +31,16 @@ def generate_text(text):
     output = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return output
 
+def count_replacements(a, b):
+    import difflib
+    matcher = difflib.SequenceMatcher(None, a, b)
+    replacements = 0
+    for tag, i1, i2, j1, j2 in matcher.get_opcodes():
+        if tag == "replace":
+            # number of characters replaced is the max of the two spans
+            replacements += max(i2 - i1, j2 - j1)
+    return replacements
+
 def main():
     initialize_app()
     input_text = st.text_area("Introduceți textul fără diacritice!")
@@ -56,6 +66,8 @@ def main():
                 output_format="line-by-line", # "line-by-line" "side-by-side"
                 force_inline_comparison=True,
             )
+            replaced = count_replacements(input_text, res)
+            # st.markdown(f":blue-badge[Modificări: {'Da' if replaced else 'Nu'}] :green-badge[Înlocuiri: replaced]")
             st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
             # st.write(f"Modificări: {"Da" if result['isChanged'] else "Nu"} Adăugări: {result['addNum']} Ștergeri: {result['delNum']}")
