@@ -43,9 +43,8 @@ def count_replacements(a, b):
 
 def main():
     initialize_app()
-    input_text = st.text_area("Introduceți textul fără diacritice!")
-    st.write(f'{len(input_text)} caractere.')
-
+    input_text = st.text_area("Introduceți textul fără diacritice!", max_chars=512)
+    
     # --- BUTTON: only sets state ---
     if st.button("Corectează diacritice"):
         if input_text:
@@ -67,7 +66,7 @@ def main():
                 force_inline_comparison=True,
             )
             replaced = count_replacements(input_text, st.session_state["res"])
-            st.markdown(f":blue-badge[Modificări: {'Da' if {replaced} else 'Nu'}] :green-badge[Înlocuiri: {replaced}]")
+            st.markdown(f"{len(input_text)} caractere. :blue-badge[Modificări: {'Da' if {replaced} else 'Nu'}] :green-badge[Înlocuiri: {replaced}]")
             # st.markdown(f""":blue-badge[Modificări: {'Da' if result['isChanged'] else 'Nu'}] :green-badge[Adăugări: {result['addNum']}] :red-badge[Ștergeri: {result['delNum']}]""")
             st.code(st.session_state["res"], language=None, wrap_lines=True) # to copy text
             # st.write(f"Modificări: {"Da" if result['isChanged'] else "Nu"} Adăugări: {result['addNum']} Ștergeri: {result['delNum']}")
