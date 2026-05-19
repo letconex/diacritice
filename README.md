@@ -6,5 +6,4 @@ A simple Streamlit app to add diacritics to a Romanian text.
 
 ### How to run it on your own machine
 
-Adaugă diacritice unui text fără diacritice.
-   ```
+```Adaugă diacritice unui text fără diacritice.``` 
