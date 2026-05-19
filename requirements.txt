@@ -1,2 +1,5 @@
 streamlit
-pandas
+transformers<5
+torchvision
+sentencepiece
+st-diff-viewer
