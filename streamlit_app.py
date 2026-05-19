@@ -16,7 +16,7 @@ def load_tokenizer():
 def initialize_app():
     st.set_page_config(
         page_title="Diacritice",
-        page_icon="public/favicon.ico",
+        page_icon="favicon.ico",
         menu_items={
             "About": "### Adaugă diacritice",
         },
